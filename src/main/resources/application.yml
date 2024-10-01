@@ -1,0 +1,103 @@
+spring:
+  application:
+    name: api-gateway
+# API Gateway configuration
+  cloud:
+    gateway:
+      routes: 
+          # Products service route 
+        - id: products-service
+          uri: lb://products-service
+          predicates:
+            - Path=/products/**
+          filters:
+            - PrefixPath=/api/v1/products
+          #  Orders service route
+        - id: orders-service
+          uri: lb://orders-service
+          predicates:
+            - Path=/orders/**
+          filters:
+            - PrefixPath=/api/v1/orders
+          #  Services service route
+        - id: services-service
+          uri: lb://services-service
+          predicates:
+            - Path=/services/**
+          filters:
+            - PrefixPath=/api/v1/services
+          #  Contracts service route
+        - id: contracts-service
+          uri: lb://contracts-service
+          predicates:
+            - Path=/contracts/**
+          filters:
+            - PrefixPath=/api/v1/contracts
+          #  Events service route
+        - id: events-service
+          uri: lb://events-service
+          predicates:
+            - Path=/events/**
+          filters:
+            - PrefixPath=/api/v1/events
+          #  Participants service route
+        - id: participants-service
+          uri: lb://participants-service
+          predicates:
+              - Path=/participants/**
+          filters:
+              - PrefixPath=/api/v1/participants
+          # Business service route
+        - id: business-service
+          uri: lb://business-service
+          predicates:
+              - Path=/business/**
+          filters:
+              - PrefixPath=/api/v1/business
+          #  Subscriptions service route
+        - id: subscriptions-service
+          uri: lb://subscriptions-service
+          predicates:
+              - Path=/subscriptions/**
+          filters:
+              - PrefixPath=/api/v1/subscriptions
+          #  Users service route
+        - id: users-service
+          uri: lb://users-service
+          predicates:
+              - Path=/users/**
+          filters:
+              - PrefixPath=/api/v1/users
+          #  Organizations service route
+        - id: organizations-service
+          uri: lb://organizations-service
+          predicates:
+              - Path=/organizations/**
+          filters:
+              - PrefixPath=/api/v1/organizations
+          #  Publications service route
+        - id: publications-service
+          uri: lb://publications-service
+          predicates:
+              - Path=/publications/**
+          filters:
+              - PrefixPath=/api/v1/publications
+          #  Notifications service route
+        - id: notifications-service
+          uri: lb://notifications-service
+          predicates:
+              - Path=/notifications/**
+          filters:
+              - PrefixPath=/api/v1/notifications
+
+#  Eureka configuration
+eureka:
+  client:
+    service-url:
+      default-zone: ${EUREKA_URL}
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+    
+#  Server configuration
+server:
+  port: 8080
