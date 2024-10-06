@@ -67,7 +67,7 @@ spring:
           predicates:
               - Path=/users/**
           filters:
-              - PrefixPath=/api/v1/users
+              - PrefixPath=/api/v1
           #  Organizations service route
         - id: organizations-service
           uri: lb://organizations-service
