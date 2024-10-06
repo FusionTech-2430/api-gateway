@@ -32,7 +32,7 @@ jobs:
             rm .env
 
   deploy-qa:
-    name: Deploy on Develop
+    name: Deploy on QA
     runs-on: self-hosted
     steps:
       - name: executing remote ssh commands using ssh key
@@ -57,7 +57,7 @@ jobs:
             rm .env
 
   deploy-prod:
-    name: Deploy on Develop
+    name: Deploy on Prod
     runs-on: self-hosted
     steps:
       - name: executing remote ssh commands using ssh key
