@@ -21,7 +21,10 @@ spring:
               - DELETE
             allowedHeaders:
               - "*"
+            allowCredentials: true
             maxAge: 3600
+          filters:
+            - RemoveRequestHeader=Origin
 #  Eureka configuration
 eureka:
   client:
