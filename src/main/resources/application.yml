@@ -14,17 +14,14 @@ spring:
           '[/**]':
             allowed-origin-patterns:
               - "*"
-            allowedMethods:
+            allowed-methods:
               - GET
               - POST
               - PUT
               - DELETE
-            allowedHeaders:
+            allowed-headers:
               - "*"
-            allowCredentials: true
-            maxAge: 3600
-          filters:
-            - RemoveRequestHeader=Origin
+            allow-credentials: true
 #  Eureka configuration
 eureka:
   client:
