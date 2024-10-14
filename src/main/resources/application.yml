@@ -8,10 +8,10 @@ spring:
       globalcors:
         cors-configurations:
           '[/**]':
-          allowed-origins: "*"
-          allowed-methods: "*"
-          allowed-headers: "*"
-          allow-credentials: true
+            allowed-origin-patterns: "*"
+            allowed-methods: "*"
+            allowed-headers: "*"
+            allow-credentials: true
       # Integration with eureka to automatically discover all the routes of the microservices
       discovery:
         locator:
@@ -24,7 +24,7 @@ eureka:
       defaultZone: ${EUREKA_URL}
   instance:
     instance-id: ${spring.application.name}:${random.uuid}
-    
+
 #  Server configuration
 server:
   port: 8080
